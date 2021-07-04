@@ -43,7 +43,7 @@ class FedMD():
             
             model_A_twin.fit(private_data[i]["X"], private_data[i]["y"],
                              batch_size = 32, epochs = 25, shuffle=True, verbose = 0,
-                             validation_data = [private_test_data["X"], private_test_data["y"]],
+                             validation_data = (private_test_data["X"], private_test_data["y"]),
                              callbacks=[EarlyStopping(monitor='val_accuracy', min_delta=0.001, patience=10)]
                             )
             
