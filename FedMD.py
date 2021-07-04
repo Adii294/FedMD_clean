@@ -78,7 +78,7 @@ class FedMD():
             
             model_ub.fit(total_private_data["X"], total_private_data["y"],
                          batch_size = 32, epochs = 50, shuffle=True, verbose = 0, 
-                         validation_data = [private_test_data["X"], private_test_data["y"]],
+                         validation_data = (private_test_data["X"], private_test_data["y"]),
                          callbacks=[EarlyStopping(monitor="val_accuracy", min_delta=0.001, patience=10)])
             
             self.upper_bounds.append(model_ub.history.history["val_accuracy"][-1])
